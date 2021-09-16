@@ -1,4 +1,8 @@
 import boto3
+import numpy
+import pandas
+import drawdata
+import matplotlib.pyplot as plt
 
 
 def dynamodb_test():
@@ -17,6 +21,34 @@ def python_study():
     print(a)
 
 
+def draw_data_test():
+    # リファレンスには描画ウィンドウが出てくるとあるが、何故か出てこない
+    drawdata.draw_scatter()
+
+
+def draw_graph_test():
+    price = [100, 250, 380, 500, 700]
+    number = [1, 2, 3, 4, 5]
+
+    # グラフを書く
+    plt.plot(price, number)
+
+    # グラフのタイトル
+    plt.title("price / number")
+
+    # x軸のラベル
+    plt.xlabel("price")
+
+    # y軸のラベル
+    plt.ylabel("number")
+
+    # グリッドを表示する
+    plt.grid(True)
+
+    # 表示する
+    plt.show()
+
+
 if __name__ == "__main__":
-    dynamodb_test()
+    draw_graph_test()
 
