@@ -1,8 +1,13 @@
+# AWS リソースへのアクセス
 import boto3
-import numpy
-import pandas
-import drawdata
+# データ処理、機械学習のための計算がやりやすい。行列計算とかが出来る
+import numpy as np
+# Dataframe ぐらいしか分らん
+import pandas as pd
+# グラフがかける
 import matplotlib.pyplot as plt
+# parquetの提供元
+import pyarrow as pa
 
 
 def dynamodb_test():
@@ -14,16 +19,6 @@ def dynamodb_test():
     for key, value in response['ResponseMetadata'].items():
         print(key)
         print(value)
-
-
-def python_study():
-    a = 1
-    print(a)
-
-
-def draw_data_test():
-    # リファレンスには描画ウィンドウが出てくるとあるが、何故か出てこない
-    drawdata.draw_scatter()
 
 
 def draw_graph_test():
@@ -49,6 +44,17 @@ def draw_graph_test():
     plt.show()
 
 
+def pyarrow_test():
+    data = b"qawsedrftgyhujikolp;"
+    buf = pa.py_buffer(data)
+
+    # buf分のメモリは確保されていないらしい
+    print(f'{buf=}')
+    print(f'{buf.size=}')
+
+
 if __name__ == "__main__":
-    draw_graph_test()
+    print("main start.")
+    pyarrow_test()
+    print("main end.")
 
