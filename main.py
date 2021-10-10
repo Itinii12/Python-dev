@@ -8,6 +8,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 # parquetの提供元
 import pyarrow as pa
+# GUI
+import tkinter
+
+import os
+import sys
 
 
 def dynamodb_test():
@@ -53,8 +58,14 @@ def pyarrow_test():
     print(f'{buf.size=}')
 
 
+def tkinter_test():
+    root = tkinter.Tk()
+    root.title(u"Software Title")
+    root.geometry("400x300")
+    root.mainloop()
+
+
 if __name__ == "__main__":
     print("main start.")
-    pyarrow_test()
+    tkinter_test()
     print("main end.")
-
